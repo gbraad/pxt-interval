@@ -1,16 +1,13 @@
 {
     "name": "interval",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Interval based execution of a function / codeblock",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts",
-        "main.cpp"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"
