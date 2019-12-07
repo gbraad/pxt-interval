@@ -20,7 +20,7 @@ namespace interval {
     * Trigger the execution
     */
     //% weight=30
-    //% blockId = "interval_onInterval" block = "Execute codeblock on |interval %interval| in ms"
+    //% blockId = "interval_onInterval" block = "Execute codeblock on |interval %interval in ms"
     //% interval.defl=1000
     //% interval.min=1
     export function OnInterval(interval: number, cb: () => void) {
