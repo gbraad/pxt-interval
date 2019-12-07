@@ -9,17 +9,23 @@ namespace interval {
     const myTimerID = 200;
     const timerTimeout = 1;
     
+    let onIntervalHandler: () => void;
 
+    // Internal function to respond to event ID
     control.onEvent(myTimerID, 0, function () {
-        basic.showNumber(0)
+        onIntervalHandler()
     })
 
     /**
     * Trigger the execution
     */
-    //% weight=30 blockId="interval_onInterval" block="Execute codeblock on interval in ms"
+    //% weight=30
+    //% blockId = "interval_onInterval" block = "Execute codeblock on |interval %interval| in ms"
+    //% interval.defl=1000
+    //% interval.min=1
     export function OnInterval(interval: number, cb: () => void) {
-        //cb
+        onIntervalHandler = cb;
+
         control.inBackground(() => {
             while (true) {
                 basic.pause(interval);
@@ -27,5 +33,4 @@ namespace interval {
             }
         })
     }
-
 }
