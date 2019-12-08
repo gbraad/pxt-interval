@@ -13,7 +13,9 @@ namespace interval {
 
     // Internal function to respond to event ID
     control.onEvent(myTimerID, 0, function () {
-        onIntervalHandler()
+        control.inBackground(() => {
+            onIntervalHandler()
+        })
     })
 
     /**
