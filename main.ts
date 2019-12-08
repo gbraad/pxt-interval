@@ -5,19 +5,6 @@ PXT Interval
 
 //% color="#00bbff" weight=10 icon="\uf1b9"
 namespace interval {
-
-    const myTimerID = 200;
-    const timerTimeout = 1;
-    
-    let onIntervalHandler: () => void;
-
-    // Internal function to respond to event ID
-    control.onEvent(myTimerID, 0, function () {
-        control.inBackground(() => {
-            onIntervalHandler()
-        })
-    })
-
     /**
     * Trigger the execution
     */
@@ -26,7 +13,14 @@ namespace interval {
     //% interval.defl=1000
     //% interval.min=1
     export function OnInterval(interval: number, cb: () => void) {
-        onIntervalHandler = cb;
+        const myTimerID = 200 + Math.randomRange(0, 100); // semi-unique
+        const timerTimeout = 1;
+
+        control.onEvent(myTimerID, 0, function () {
+            control.inBackground(() => {
+                cb()
+            })
+        })
 
         control.inBackground(() => {
             while (true) {
